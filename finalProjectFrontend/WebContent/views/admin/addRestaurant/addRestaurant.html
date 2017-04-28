@@ -1,0 +1,65 @@
+<p style="padding-left:15px"> 
+   <a href="#admin"  class="btn btn-primary">Home</a>
+</p>
+
+<div class='container'>
+	<div class='panel panel-primary dialog-panel'>
+		<div class='panel-heading'><h5>Create Restaurant</h5></div>
+		<div class='panel-body'>
+			<form class='form-horizontal'  name="addRestaurantForm">
+				<div class="form-group">
+					<div ng-show="addRestaurantAdmintCtrl.error" align="center" class="col-sm-offset-2 col-sm-2 alert alert-danger">{{addRestaurantAdmintCtrl.message}}</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Name</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_name' placeholder='Name' ng-model="addRestaurantAdmintCtrl.restaurant.name"  type='text' ng-required="true" >
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Address</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_address' placeholder='Description' ng-model="addRestaurantAdmintCtrl.restaurant.address"  type='text'  ng-required="true">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Description</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_description' placeholder='Description' ng-model="addRestaurantAdmintCtrl.restaurant.description"  type='text' ng-required="true" >
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2' for='id_maxCapacity'>Max Capacity</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_maxCapacity' placeholder='Max Capacity' ng-model="addRestaurantAdmintCtrl.restaurant.maxCapacity" type='number' ng-required="true" >
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<div class='col-md-offset-4 col-md-3'>
+						<button class='btn btn-primary' ng-click="addRestaurantForm.$valid && addRestaurantAdmintCtrl.addRestaurant()" type='submit'>Add</button>
+						<button class='btn btn-danger'  ng-click="addRestaurantAdmintCtrl.cancel()" style='float: right' type='button'>Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

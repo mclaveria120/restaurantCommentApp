@@ -1,0 +1,75 @@
+<div class='container'>
+	<div class='panel panel-primary dialog-panel'>
+		<div class='panel-heading'><h5>Registration</h5></div>
+		<div class='panel-body'>
+			<form class='form-horizontal' name='registrationForm'>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_title'>Name</label>
+					<div class='col-md-8'>
+						<div class='col-md-3 indent-small'>
+							<div class='form-group internal'>
+								<input class='form-control' id='id_name' ng-model="regCtrl.registration.name" placeholder='Name' type='text' ng-required="true">
+							</div>
+						</div>
+						<div class='col-md-3 indent-small'>
+							<div class='form-group internal'>
+								<input class='form-control' id='id_surname' ng-model="regCtrl.registration.surname" placeholder='Surname' type='text' ng-required="true">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Email</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_email' placeholder='Email' ng-model="regCtrl.registration.email"  type='email' ng-required="true">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2' for='id_password'>Password</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_password' placeholder='Password' ng-model="regCtrl.registration.password" type='password' ng-required="true">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2' for='id_phone'>Phone</label>
+					<div class='col-md-6'>
+						<div class='form-group internal'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_phone' placeholder='Phone: (xxx) - xxx xxxx' type='number'  ng-model="regCtrl.registration.phone" ng-required="true">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2' for='id_role'>Role</label>
+					<div class='col-md-8'>
+						<div class='col-md-3'>
+							<div class='form-group internal'>
+								<select class='form-control' id='id_role' ng-model="regCtrl.registration.role">
+									<option value="OWNER" ng-selected="true">Owner</option>
+									<option value="CUSTOMER">Customer</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<div class='col-md-offset-4 col-md-3'>
+						<button class='btn btn-primary' ng-click="registrationForm.$valid && regCtrl.register()" type='submit'>Register</button>
+						<button class='btn btn-danger' ng-click="regCtrl.cancel()" style='float: right'  type='button'>Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

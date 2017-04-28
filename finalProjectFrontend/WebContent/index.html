@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="UTF-8">
+<title>MyRestaurant</title>
+
+<script src="lib/angular.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="lib/angular-cookies.js"></script>
+<script src="lib/angular-sanitize.js"></script>
+
+<script src="lib/jquery-3.1.1.js"></script>
+
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/ui-bootstrap-tpls-2.3.0.js"></script>
+ 
+<link rel="stylesheet" href="lib/bootstrap.min.css">
+<link rel="stylesheet" href="css/finalProject.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+</head>
+<body>
+	<nav class="navbar navbar-default" ng-controller="applicationContoller" ng-init="init()">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand" ng-if="userSession.name!=null" ng-click="home()">WELCOME: {{userSession.name}}</div>
+			</div>
+			<div id="guest">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#login" ng-if="getPath()!='/login'"></i>Login</a></li>
+					<li><a href="#registration" ng-if="getPath()!='/registration'">Register</a></li>
+				</ul>
+			</div>
+			<div id="logout">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a ng-click="logout()"></i>Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div  align="center"  ng-show="messageError" class="alert alert-danger">{{message}}</div>
+	
+	
+ 
+	
+	<div class="jumbotron">
+		<div class="container-fluid">
+			<div class="col-xs-offset-2 col-xs-8">
+				<div ng-view></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Conf -->
+	<script type="text/javascript" src="conf/app.js"></script><!--Registration Module -->
+	<script type="text/javascript" src="conf/app-router.js"></script><!--Navigation and APP LEVEL config Module -->
+	<script type="text/javascript" src="conf/app-const.js"></script><!--Application Const. -->
+	
+	<script type="text/javascript" src="util/popup/app-component.js"></script>
+	<script type="text/javascript" src="util/utilModule.js"></script>
+	
+	<script type="text/javascript" src="js/appModule.js"></script>
+	
+	
+	<script type="text/javascript" src="views/login/loginModule.js"></script>
+	<script type="text/javascript" src="views/register/registrationModule.js"></script>
+	
+	<!-- ADMIN -->
+	<script type="text/javascript" src="views/admin/adminHomeModule.js"></script>
+	<script type="text/javascript" src="views/admin/addRestaurant/addRestaurantModule.js"></script>
+	<script type="text/javascript" src="views/admin/addOwner/addOwner.js"></script>
+	<script type="text/javascript" src="views/admin/users/adminUsersModule.js"></script>
+	<script type="text/javascript" src="views/admin/reviews/adminReviewsModule.js"></script>
+	
+	<!-- OWNER -->
+	<script type="text/javascript" src="views/owner/ownerHomeModule.js"></script>
+	<script type="text/javascript" src="views/owner/restaurant/ownerRestaurantModule.js"></script>
+		
+	<script type="text/javascript" src="views/owner/comments/ownerCommentModule.js"></script>
+	<script type="text/javascript" src="views/owner/addComment/ownerAddCommentModule.js"></script>
+	
+	<!-- CUSTOMER -->
+	<script type="text/javascript" src="views/customer/customerHomeModule.js"></script>
+	<script type="text/javascript" src="views/customer/addReview/customerAddReviewModule.js"></script>
+	<!-- GUEST -->
+	<script type="text/javascript" src="views/welcomeModule.js"></script>
+	<script type="text/javascript" src="views/addReviewModule.js"></script>
+
+</body>
+</html>

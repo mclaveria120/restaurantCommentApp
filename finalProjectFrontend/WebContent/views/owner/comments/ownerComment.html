@@ -1,0 +1,37 @@
+<p style="padding-left:15px"> 
+   <a href="#owner"  class="btn btn-primary">Home</a>
+</p>
+<div class="page-header" ng-init="init()">
+	<div ng-switch on="restaurant">
+	
+			<div ng-switch-when="null" class="alert alert-info" ><p> You do not have any restaurant!</p></div>
+		 		
+		 		<div class="list-group" style="width: 70%;margin: auto;padding-bottom: 60px;" ng-switch-default >
+						
+						<div style="margin-bottom: 42px;">
+							<a 	class="list-group-item list-group-item-action active">
+			   						 <h5 class="list-group-item-heading">{{restaurant.name}}<span style="float: right;padding-right: 70px;
+			   						 ">{{restaurant.address}}</span></h5>
+			   						 <p class="list-group-item-text">{{restaurant.description}}</p>
+			  				</a>
+						</div>
+						
+				 		<div ng-repeat="review in restaurant.reviews" class="reviews">	
+							  <span  class="list-group-item-heading">
+							  		<span class="label label-success">Review</span>
+								    <span class="list-group-item-heading" style="float: right;">{{review.date}}</span>
+								    <p class="list-group-item-text" style="margin-top:10px;margin-bottom:0px">{{review.description}}.</p>
+								   <div class="rating">
+								   		<span ng-repeat="j in getTimes(review.stars) track by $index">★</span>
+									</div>
+							 </span>
+							<div ng-if="review.comment!=null">
+								<div class="alert alert-warning"> <p class="list-group-item-text">{{review.comment.text}}.</p></div>
+							</div>
+							<div ng-if="review.comment==null">
+								<button class='btn btn-warning' ng-click="addComment(review)" type="button">Add Comment</button>
+							</div>
+						</div>	
+			</div>
+   </div>
+</div>

@@ -1,0 +1,30 @@
+<form class="form-horizontal" ng-init="loginCtrl.clearCredentials()" name="loginForm">
+	<div class="form-group">
+		<div ng-show="loginCtrl.error" align="center" class="col-sm-offset-2 col-sm-8 alert alert-danger">{{loginCtrl.message}}</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="username" class="col-sm-2 control-label">Username</label>
+		<div class="col-sm-6">
+			<input type="email" class="form-control" placeholder="username" id="username"
+			 ng-model="loginCtrl.credentials.username" ng-required="true" />
+			 
+			 
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="password" class="col-sm-2 control-label">Password</label>
+		<div class="col-sm-6">
+			<input type="password" class="form-control" placeholder="password" id="password"
+			 ng-model="loginCtrl.credentials.password"  ng-required="true" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-3">
+			<button type="submit" ng-click="loginForm.$valid && loginCtrl.login()"  class="btn btn-primary">Login</button>
+			<button class='btn btn-danger' ng-click="loginCtrl.cancel()" style='float: right' type='button'>Cancel</button>
+		</div>
+	</div>
+</form>

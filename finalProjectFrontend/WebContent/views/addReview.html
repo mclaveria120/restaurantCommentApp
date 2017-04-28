@@ -1,0 +1,49 @@
+<p style="padding-left:15px"> 
+   <a href="#"  class="btn btn-primary">Home</a>
+</p>
+<div class='container'>
+	<div class='panel panel-primary dialog-panel'>
+		<div class='panel-heading'><h5>Add Review</h5></div>
+		<div class='panel-body'>
+			<form class='form-horizontal'  name="addReviewForm">
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Description</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<textarea class='form-control' id='id_description' style='margin: 0px -47.5938px 0px 0px; width: 421px; height: 89px;'
+								 ng-model="review.description" ng-required="true"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2' for='id_stars'>Score</label>
+					<div class='col-md-8'>
+						<div class='col-md-3'>
+							<div class='form-group internal'>
+								<select class='form-control' id='id_stars' ng-model="review.stars"   ng-required="true">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3" ng-selected="true" >3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class='form-group'>
+					<div class='col-md-offset-4 col-md-3'>
+					
+						<button class='btn btn-primary' ng-click="addReviewForm.$valid && addReview()" type='submit'>Add</button>
+						<button class='btn btn-danger'  ng-click="cancel()" style='float: right' type='button'>Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

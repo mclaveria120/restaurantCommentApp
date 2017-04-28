@@ -1,0 +1,45 @@
+<p> 
+	<a href="#/"  class="btn btn-primary">Home</a>
+   <a ng-click="createRestaurant()"  class="btn btn-primary">Create Restaurant</a>
+</p>
+
+
+<div class="page-header" ng-init="init()">
+	<div ng-switch on="restaurants.length">
+	<div ng-switch-when="0" class="alert alert-info" ><p> You do not have any restaurant!</p></div>
+		<div  class="table-responsive" ng-switch-default>
+			<table class="table table-hover">
+				<tr class="table-heading">
+					<th><a  ng-click="sortType = 'id'; sortReverse = !sortReverse">
+      				 ID
+		        <span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
+		        <span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
+     			 </a></th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Address</th>
+					<th>Max Capacity</th>
+					<th>Reviews</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr ng-repeat="restaurant in restaurants | orderBy:sortType:sortReverse">
+					<td>{{restaurant.id}}</td>
+					<td>{{restaurant.name}}</td>
+					<td>{{restaurant.description}}</td>
+					<td>{{restaurant.address}}</td>
+					<td>{{restaurant.maxCapacity}}</td>
+					<td>{{restaurant.reviews.length}}</td>
+					<td>
+						<div  ng-if="restaurant.reviews.length>0">
+					  		<a ng-click="viewReviews(restaurant)"class="btn btn-primary">View</a>
+						</div>
+					</td>
+					<td>
+					  <a ng-click="updateRestaurant(restaurant)"class="btn btn-info">Edit</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
